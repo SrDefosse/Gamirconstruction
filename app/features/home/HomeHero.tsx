@@ -1,0 +1,3 @@
+import { Button } from "../../shared/ui/Button";
+import { images } from "../../shared/lib/images";
+export function HomeHero() { return <section className="hero"><div className="hero-copy shell"><p className="kicker">San Antonio custom home builder</p><h1>Built around your life.</h1><p className="hero-lede">Gamir brings architecture, construction, and an attentive family-led process together to create homes that feel deeply personal from the first conversation onward.</p><div className="actions"><Button to="/work">Explore our work</Button><Button to="/contact" variant="light">Plan your home</Button></div></div><div className="hero-image"><img src={images.living} alt="Custom home interior by Gamir Construction" /></div></section>; }

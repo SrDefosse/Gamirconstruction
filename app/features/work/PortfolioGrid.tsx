@@ -1,0 +1,5 @@
+"use client";
+import { useState } from "react";
+import { portfolioProjects, type PortfolioProject } from "../../shared/lib/portfolio";
+const filters: Array<"All work" | PortfolioProject["category"]> = ["All work", "Custom Home", "Remodel", "In Progress"];
+export function PortfolioGrid() { const [filter, setFilter] = useState<(typeof filters)[number]>("All work"); const visibleProjects = filter === "All work" ? portfolioProjects : portfolioProjects.filter((project) => project.category === filter); return <><div className="filter-row" role="group" aria-label="Filter projects">{filters.map((item) => <button key={item} className={filter === item ? "active" : ""} type="button" onClick={() => setFilter(item)}>{item}</button>)}</div><div className="work-grid">{visibleProjects.map((project) => <article className="work-card" key={project.name}><img src={project.image} alt={`${project.name} by Gamir Construction`} /><div><p>{project.category}</p><h2>{project.name}</h2></div></article>)}</div></>; }
