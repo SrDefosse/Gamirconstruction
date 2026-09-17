@@ -12,5 +12,5 @@ export function Preloader() {
     timeline.fromTo(".preloader-logo", { autoAlpha: 0, scale: .9 }, { autoAlpha: 1, scale: 1, duration: .45, ease: "power2.out" }).to(".preloader", { yPercent: -100, duration: .72, ease: "power3.inOut", delay: .28 });
   });
   if (!visible) return null;
-  return <div className="preloader" role="status" aria-label="Loading Gamir Construction"><img className="preloader-logo" src="/logo.avif" alt="" /></div>;
+  return <div className="preloader" role="status" aria-label="Loading Gamir Construction"><img className="preloader-logo" src="/logo.png" alt="" /></div>;
 }

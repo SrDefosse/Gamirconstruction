@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import "./home-balance.css";
 import "./mobile-nav.css";
+import "lenis/dist/lenis.css";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -18,8 +19,8 @@ const localBusinessSchema = {
   "@id": "https://www.gamirconstruction.com/#business",
   name: "Gamir Construction",
   url: "https://www.gamirconstruction.com/",
-  logo: "https://www.gamirconstruction.com/logo.avif",
-  image: "https://www.gamirconstruction.com/logo.avif",
+  logo: "https://www.gamirconstruction.com/logo.png",
+  image: "https://www.gamirconstruction.com/logo.png",
   telephone: "+1-210-799-7222",
   email: "info@gamirconstruction.com",
   address: { "@type": "PostalAddress", streetAddress: "200 E. Grayson Street, Suite 210", addressLocality: "San Antonio", addressRegion: "TX", postalCode: "78215", addressCountry: "US" },
