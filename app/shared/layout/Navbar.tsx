@@ -3,5 +3,133 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, NavLink, useLocation } from "react-router";
 import { Button } from "../ui/Button";
-const links = [{ to: "/process", label: "Process" }, { to: "/work", label: "Work" }, { to: "/about", label: "About" }, { to: "/services", label: "Services" }, { to: "/journal", label: "Journal" }];
-export function Navbar() { const { pathname } = useLocation(); const [hasPassedHero, setHasPassedHero] = useState(false); const [isMenuOpen, setIsMenuOpen] = useState(false); const [hasMounted, setHasMounted] = useState(false); const menuToggleRef = useRef<HTMLButtonElement>(null); useEffect(() => { setHasMounted(true); }, []); useEffect(() => { const onScroll = () => setHasPassedHero(window.scrollY > window.innerHeight * .58); onScroll(); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, [pathname]); useEffect(() => { setIsMenuOpen(false); }, [pathname]); useEffect(() => { document.body.classList.toggle("mobile-menu-open", isMenuOpen); return () => document.body.classList.remove("mobile-menu-open"); }, [isMenuOpen]); const closeMenu = () => { menuToggleRef.current?.focus(); setIsMenuOpen(false); }; const isDark = pathname !== "/" || hasPassedHero; const mobileMenu = hasMounted ? createPortal(<><button className={`nav-scrim ${isMenuOpen ? "is-open" : ""}`} type="button" tabIndex={isMenuOpen ? 0 : -1} aria-label="Close navigation" onClick={closeMenu} /><aside id="mobile-navigation" className={`mobile-nav ${isMenuOpen ? "is-open" : ""}`} inert={!isMenuOpen}><div className="mobile-nav__top"><img src="/logo.png" alt="Gamir Construction" /><button type="button" aria-label="Close navigation" onClick={closeMenu}>Close <span>×</span></button></div><div className="mobile-nav__links">{links.map((link, index) => <NavLink key={link.to} to={link.to} style={{ transitionDelay: `${isMenuOpen ? 110 + index * 60 : 0}ms` }} onClick={() => setIsMenuOpen(false)}>{link.label}<span>↗</span></NavLink>)}</div><div className="mobile-nav__contact"><p>Start a project</p><a href="tel:+12107997222">(210) 799-7222</a><a href="mailto:info@gamirconstruction.com">info@gamirconstruction.com</a></div></aside></>, document.body) : null; return <><header className={`site-header ${isDark ? "site-header--dark" : "site-header--light"}`}><nav className="nav shell" aria-label="Main navigation"><Link className="brand-logo" to="/" aria-label="Gamir Construction home"><img src="/logo.png" alt="Gamir Construction" /></Link><div className="nav-links">{links.map((link) => <NavLink key={link.to} to={link.to}>{link.label}</NavLink>)}</div><div className="nav-actions"><Button to="/contact" variant={isDark ? "dark" : "light"}>Start a conversation</Button><button ref={menuToggleRef} className={`nav-toggle ${isMenuOpen ? "is-open" : ""}`} type="button" aria-label={isMenuOpen ? "Close navigation" : "Open navigation"} aria-expanded={isMenuOpen} aria-controls="mobile-navigation" onClick={() => setIsMenuOpen((open) => !open)}><span /><span /></button></div></nav></header>{mobileMenu}</>; }
+const links = [
+  { to: "/process", label: "Process" },
+  { to: "/work", label: "Work" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/journal", label: "Journal" },
+];
+export function Navbar() {
+  const { pathname } = useLocation();
+  const [hasPassedHero, setHasPassedHero] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  useEffect(() => {
+    const onScroll = () =>
+      setHasPassedHero(window.scrollY > window.innerHeight * 0.58);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    document.body.classList.toggle("mobile-menu-open", isMenuOpen);
+    return () => document.body.classList.remove("mobile-menu-open");
+  }, [isMenuOpen]);
+  const closeMenu = () => {
+    menuToggleRef.current?.focus();
+    setIsMenuOpen(false);
+  };
+  const isDark = pathname !== "/" || hasPassedHero;
+  const mobileMenu = hasMounted
+    ? createPortal(
+        <>
+          <button
+            className={`nav-scrim ${isMenuOpen ? "is-open" : ""}`}
+            type="button"
+            tabIndex={isMenuOpen ? 0 : -1}
+            aria-label="Close navigation"
+            onClick={closeMenu}
+          />
+          <aside
+            id="mobile-navigation"
+            className={`mobile-nav ${isMenuOpen ? "is-open" : ""}`}
+            inert={!isMenuOpen}
+          >
+            <div className="mobile-nav__top">
+              <img src="/logo.png" alt="Gamir Construction" />
+              <button
+                type="button"
+                aria-label="Close navigation"
+                onClick={closeMenu}
+              >
+                Close <span>×</span>
+              </button>
+            </div>
+            <div className="mobile-nav__links">
+              {links.map((link, index) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  style={{
+                    transitionDelay: `${isMenuOpen ? 110 + index * 60 : 0}ms`,
+                  }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                  <span>↗</span>
+                </NavLink>
+              ))}
+            </div>
+            <div className="mobile-nav__contact">
+              <p>Start a project</p>
+              <a href="tel:+12107997222">(210) 799-7222</a>
+              <a href="mailto:info@gamirconstruction.com">
+                info@gamirconstruction.com
+              </a>
+            </div>
+          </aside>
+        </>,
+        document.body,
+      )
+    : null;
+  return (
+    <>
+      <header
+        className={`site-header ${isDark ? "site-header--dark" : "site-header--light"}`}
+      >
+        <nav className="nav shell" aria-label="Main navigation">
+          <Link
+            className="brand-logo"
+            to="/"
+            aria-label="Gamir Construction home"
+          >
+            <img src="/logo.png" alt="Gamir Construction" />
+          </Link>
+          <div className="nav-links">
+            {links.map((link) => (
+              <NavLink key={link.to} to={link.to}>
+                {link.label}
+              </NavLink>
+            ))}
+          </div>
+          <div className="nav-actions">
+            <Button to="/contact" variant={isDark ? "dark" : "light"}>
+              Start a conversation
+            </Button>
+            <button
+              ref={menuToggleRef}
+              className={`nav-toggle ${isMenuOpen ? "is-open" : ""}`}
+              type="button"
+              aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
+        </nav>
+      </header>
+      {mobileMenu}
+    </>
+  );
+}

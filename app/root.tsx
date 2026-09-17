@@ -23,7 +23,14 @@ const localBusinessSchema = {
   image: "https://www.gamirconstruction.com/logo.png",
   telephone: "+1-210-799-7222",
   email: "info@gamirconstruction.com",
-  address: { "@type": "PostalAddress", streetAddress: "200 E. Grayson Street, Suite 210", addressLocality: "San Antonio", addressRegion: "TX", postalCode: "78215", addressCountry: "US" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "200 E. Grayson Street, Suite 210",
+    addressLocality: "San Antonio",
+    addressRegion: "TX",
+    postalCode: "78215",
+    addressCountry: "US",
+  },
   areaServed: { "@type": "City", name: "San Antonio" },
   priceRange: "$$$",
 };
@@ -51,7 +58,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
         {children}
         <ScrollRestoration />
         <Scripts />
