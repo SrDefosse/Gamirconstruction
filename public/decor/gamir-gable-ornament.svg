@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <title>Gamir gable ornament</title>
+  <g stroke-linecap="square" stroke-linejoin="miter">
+    <path
+      d="M42 310L320 74L598 310"
+      stroke="#13201A"
+      stroke-width="18"
+    />
+    <path
+      d="M104 320L320 136L536 320"
+      stroke="#68745F"
+      stroke-width="8"
+    />
+    <path
+      d="M168 330L320 200L472 330"
+      stroke="#13201A"
+      stroke-width="8"
+    />
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <title>Gamir architectural corner ornament</title>
+  <g stroke-linecap="square" stroke-linejoin="miter">
+    <path
+      d="M72 440H310C381.797 440 440 381.797 440 310V72"
+      stroke="#13201A"
+      stroke-width="18"
+    />
+    <path
+      d="M72 398H310C358.601 398 398 358.601 398 310V72"
+      stroke="#68745F"
+      stroke-width="8"
+    />
+    <path
+      d="M72 356H286"
+      stroke="#13201A"
+      stroke-width="8"
+    />
+    <path
+      d="M356 286V72"
+      stroke="#13201A"
+      stroke-width="8"
+    />
+  </g>
+</svg>

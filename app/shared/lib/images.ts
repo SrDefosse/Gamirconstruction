@@ -1,5 +1,6 @@
 const wix = "https://static.wixstatic.com/media/";
 export const images = {
+  homeHero: "/gamir-hero-home.png",
   hero: `${wix}81591a_2955aae66c494b97a5dfeafe636e8252~mv2.jpg/v1/fill/w_2200,h_1400,al_c,q_90/6811_WHausmanRd_FranciscoCervantes-5.jpg`,
   exterior: `${wix}81591a_270fb693f5c44152b2cc85badc095093~mv2.jpg/v1/fill/w_1800,h_1400,al_c,q_90/6811-w-hausman-rd_GG-1-2.jpg`,
   interior: `${wix}81591a_643a12459e294b9bbb8a0bc49f8dd284~mv2.jpg/v1/fill/w_1800,h_1400,al_c,q_90/6811_WHausmanRd_FranciscoCervantes-17.jpg`,
