@@ -41,3 +41,8 @@ body.mobile-menu-open{overflow:hidden}
 @media(max-width:760px){.service-start .shell{grid-template-columns:1fr}.service-start__image{min-height:360px}.service-start__content>p:not(.kicker){margin-bottom:36px}}
 
 .journal-hero{padding-bottom:clamp(52px,5vw,72px)}
+
+/* Responsive layout refinements. */
+.cta > .shell > p:not(.kicker){margin-bottom:32px}
+@media(max-width:1024px){.process-preview{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,64px)}.process-preview>*{min-width:0}.filter-row{justify-content:flex-start}}
+@media(max-width:760px){.process-preview{grid-template-columns:minmax(0,1fr);gap:48px}.process-cards{gap:42px}.process-cards article:nth-child(2){width:100%;margin-left:0}.featured-work .project,.featured-work .project--panoramic{height:max(270px,66vw)}}
